@@ -32,7 +32,7 @@ export default function TravelBenefits() {
     const isInView = useInView(ref, { once: false, margin: "-100px" });
 
     return (
-        <section className="section relative overflow-hidden bg-accent-section">
+        <section id="travel" className="section relative overflow-hidden bg-accent-section">
             {/* Background Overlay */}
             <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628]/90 via-transparent to-[#0a1628]/95" />
 

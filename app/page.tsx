@@ -8,6 +8,7 @@ import LoungeAccess from "@/components/sections/LoungeAccess";
 import LifestylePrivileges from "@/components/sections/LifestylePrivileges";
 import TravelBenefits from "@/components/sections/TravelBenefits";
 import RegistrationForm from "@/components/sections/RegistrationForm";
+import VipPackage from "@/components/sections/VipPackage";
 import AppShell from "@/components/ui/AppShell";
 import BackToTop from "@/components/ui/BackToTop";
 
@@ -20,6 +21,9 @@ export default function Home() {
         <main>
           {/* Hero - 3D Card với The Prestige Facet */}
           <Hero />
+
+          {/* Bộ sưu tập VIP Package */}
+          <VipPackage />
 
           {/* 3 Key Benefits với animated counter */}
           <BenefitsGrid />
