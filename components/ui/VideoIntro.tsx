@@ -8,21 +8,21 @@ const INTRO_DURATION = 7.5; // video seconds to play (at 2x speed = ~3.75s real 
 export default function VideoIntro({ onComplete }: { onComplete: () => void }) {
     const videoRef = useRef<HTMLVideoElement>(null);
     const [fadeOut, setFadeOut] = useState(false);
+    const hasEnded = useRef(false);
 
     const handleEnd = useCallback(() => {
-        if (fadeOut) return;
+        if (hasEnded.current) return;
+        hasEnded.current = true;
         setFadeOut(true);
-        // Wait for fade-out animation to finish before calling onComplete
         setTimeout(() => {
             onComplete();
         }, 800);
-    }, [fadeOut, onComplete]);
+    }, [onComplete]);
 
     useEffect(() => {
         const video = videoRef.current;
         if (!video) return;
 
-        // Stop at INTRO_DURATION seconds
         const onTimeUpdate = () => {
             if (video.currentTime >= INTRO_DURATION) {
                 video.pause();
@@ -33,15 +33,12 @@ export default function VideoIntro({ onComplete }: { onComplete: () => void }) {
         video.addEventListener("timeupdate", onTimeUpdate);
         video.addEventListener("ended", handleEnd);
 
-        // Fallback: if video fails to load or play, skip intro after timeout
         const fallbackTimer = setTimeout(() => {
             handleEnd();
         }, (INTRO_DURATION + 2) * 1000);
 
-        // Play at 2x speed
-        video.playbackRate = 2;
+        video.playbackRate = 4;
         video.play().catch(() => {
-            // Autoplay blocked - skip intro
             handleEnd();
         });
 

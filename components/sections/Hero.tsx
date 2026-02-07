@@ -64,8 +64,11 @@ export default function Hero() {
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
             {/* Hero Background Image */}
             <div
-                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                style={{ backgroundImage: "url('/backgrounds/hero-bg.png')" }}
+                className="absolute -inset-[5%] w-[110%] h-[110%] bg-cover bg-center bg-no-repeat"
+                style={{
+                    backgroundImage: "url('/backgrounds/hero-bg.png')",
+                    animation: "bgKenBurns 25s ease-in-out infinite alternate",
+                }}
             />
 
             {/* Dark navy overlay */}
@@ -139,10 +142,10 @@ export default function Hero() {
                             variants={staggerItem}
                             className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
                         >
-                            <a href="#register" className="btn-metallic">
+                            <a href="#register" className="btn-metallic shimmer-hover">
                                 Đăng ký ngay
                             </a>
-                            <a href="#benefits" className="btn-metallic-outline">
+                            <a href="#benefits" className="btn-metallic-outline shimmer-hover">
                                 Khám phá quyền lợi
                             </a>
                         </motion.div>

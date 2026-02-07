@@ -34,7 +34,7 @@ const category2Percent = [
 
 export default function CashbackSection() {
     const ref = useRef(null);
-    const isInView = useInView(ref, { once: true, margin: "-100px" });
+    const isInView = useInView(ref, { once: false, margin: "-100px" });
     const [selected10, setSelected10] = useState<number | null>(0);
     const [selected2, setSelected2] = useState<number[]>([0, 1]);
 
@@ -62,15 +62,14 @@ export default function CashbackSection() {
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false }}
                     className="text-center mb-16"
                 >
                     <p className="text-[#c0c0c0] uppercase tracking-[0.2em] text-sm mb-4">
                         Hoàn tiền thông minh
                     </p>
                     <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-                        Hoàn tiền đến{" "}
-                        <TextMorphInline className="text-gradient-silver" stagger={0.03}>800,000 VND</TextMorphInline>/kỳ
+                        <TextMorphInline className="text-white" stagger={0.03}>Hoàn tiền đến </TextMorphInline><TextMorphInline className="text-gradient-silver" stagger={0.03} delay={0.45}>800,000 VND</TextMorphInline><TextMorphInline className="text-white" stagger={0.03} delay={0.8}>/kỳ</TextMorphInline>
                     </h2>
                     <p className="text-[#94a3b8] max-w-2xl mx-auto">
                         Chọn lĩnh vực ưu đãi phù hợp với phong cách sống của bạn
@@ -88,7 +87,7 @@ export default function CashbackSection() {
                             </div>
                             <div>
                                 <h3 className="text-xl font-semibold text-white">Hoàn tiền</h3>
-                                <p className="text-sm text-[#94a3b8]">Tối đa 400k VND/kỳ</p>
+                                <p className="text-sm text-[#94a3b8]">Tối đa 400,000 VNĐ/kỳ</p>
                             </div>
                         </div>
 
@@ -153,7 +152,7 @@ export default function CashbackSection() {
                             </div>
                             <div>
                                 <h3 className="text-xl font-semibold text-white">Hoàn tiền</h3>
-                                <p className="text-sm text-[#94a3b8]">Tối đa 400k VND/kỳ</p>
+                                <p className="text-sm text-[#94a3b8]">Tối đa 400,000 VNĐ/kỳ</p>
                             </div>
                         </div>
 
@@ -189,14 +188,14 @@ export default function CashbackSection() {
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false }}
                     className="mt-12 text-center"
                 >
                     <div className="inline-flex items-center gap-4 glass-card-diamond px-8 py-6">
                         {/* Silver Metallic Icon */}
                         <div className="relative inline-flex">
                             <div className="absolute -inset-1 bg-gradient-to-br from-white/30 via-transparent to-[#c0c0c0]/20 rounded-full blur-sm transform rotate-12" />
-                            <div className="relative p-3 rounded-full bg-gradient-to-br from-[#d0d0d0] via-[#f0f0f0] to-[#b8b8b8] shadow-lg">
+                            <div className="relative p-3 rounded-full bg-gradient-to-br from-[#d0d0d0] via-[#f0f0f0] to-[#b8b8b8] shadow-lg shimmer-auto">
                                 <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-white/60 via-transparent to-transparent" />
                                 <Cake className="relative w-6 h-6 text-[#1a2a5e]" />
                             </div>

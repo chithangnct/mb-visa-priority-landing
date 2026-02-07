@@ -167,6 +167,72 @@ body {
   animation: light-streak 4s ease-in-out infinite;
 }
 
+/* Shimmer hover effect for buttons & icons */
+.shimmer-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.25),
+      transparent);
+  transform: skewX(-25deg);
+  transition: none;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.shimmer-hover:hover::after {
+  animation: shimmer-sweep 0.8s ease-in-out forwards;
+}
+
+@keyframes shimmer-sweep {
+  0% {
+    left: -100%;
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  100% {
+    left: 200%;
+    opacity: 0;
+  }
+}
+
+/* Auto shimmer - loops continuously (for icons) */
+.shimmer-auto {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-auto::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent);
+  transform: skewX(-25deg);
+  animation: light-streak 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 10;
+}
+
 /* Fade In Up */
 @keyframes fadeInUp {
   from {
@@ -699,11 +765,21 @@ body {
 /* Accent section background with bgbody image */
 .bg-accent-section {
   position: relative;
-  background:
-    url('/backgrounds/bgbody.png');
+  overflow: hidden;
+}
+
+.bg-accent-section::after {
+  content: '';
+  position: absolute;
+  inset: -5%;
+  width: 110%;
+  height: 110%;
+  background: url('/backgrounds/bgbody.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  animation: bgKenBurns 25s ease-in-out infinite alternate;
+  z-index: 0;
 }
 
 .bg-accent-section::before {
@@ -712,12 +788,26 @@ body {
   inset: 0;
   background: linear-gradient(180deg, #040a14 0%, rgba(4, 10, 20, 0.82) 15%, rgba(4, 10, 20, 0.75) 50%, rgba(4, 10, 20, 0.82) 85%, #040a14 100%);
   pointer-events: none;
-  z-index: 0;
+  z-index: 1;
 }
 
-.bg-accent-section > * {
+.bg-accent-section>* {
   position: relative;
-  z-index: 1;
+  z-index: 2;
+}
+
+@keyframes bgKenBurns {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+
+  50% {
+    transform: scale(1.06) translate(-1%, 1%);
+  }
+
+  100% {
+    transform: scale(1.03) translate(1%, -0.5%);
+  }
 }
 
 /* ============================================

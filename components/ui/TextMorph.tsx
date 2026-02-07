@@ -46,7 +46,7 @@ export default function TextMorph({
     delay = 0,
     charDuration = 1,
     stagger = 0.08,
-    once = true,
+    once = false,
     immediate = false,
 }: TextMorphProps) {
     const ref = useRef<HTMLDivElement>(null);
@@ -123,7 +123,7 @@ export function TextMorphInline({
     delay = 0,
     charDuration = 0.9,
     stagger = 0.07,
-    once = true,
+    once = false,
     immediate = false,
     parentInView,
 }: TextMorphInlineProps) {

@@ -41,7 +41,7 @@ const benefits = [
 function Counter({ value, suffix = "", prefix = "" }: { value: number; suffix?: string; prefix?: string }) {
     const [count, setCount] = useState(0);
     const ref = useRef<HTMLSpanElement>(null);
-    const isInView = useInView(ref, { once: true, margin: "-100px" });
+    const isInView = useInView(ref, { once: false, margin: "-100px" });
 
     useEffect(() => {
         if (isInView) {
@@ -75,7 +75,7 @@ function Counter({ value, suffix = "", prefix = "" }: { value: number; suffix?: 
 
 export default function BenefitsGrid() {
     const containerRef = useRef(null);
-    const isInView = useInView(containerRef, { once: true, margin: "-100px" });
+    const isInView = useInView(containerRef, { once: false, margin: "-100px" });
 
     return (
         <section id="benefits" className="section relative overflow-hidden">
@@ -87,7 +87,7 @@ export default function BenefitsGrid() {
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false }}
                     transition={{ duration: 0.6 }}
                     className="text-center mb-16"
                 >
@@ -95,7 +95,7 @@ export default function BenefitsGrid() {
                         Quyền lợi nổi bật
                     </p>
                     <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-                        Đặc quyền <TextMorphInline className="text-gradient-silver" stagger={0.04}>vượt trội</TextMorphInline>
+                        <TextMorphInline className="text-white" stagger={0.04}>Đặc quyền </TextMorphInline><TextMorphInline className="text-gradient-silver" stagger={0.04} delay={0.4}>vượt trội</TextMorphInline>
                     </h2>
                     <p className="text-[#94a3b8] max-w-2xl mx-auto">
                         Thẻ MB Visa Priority Signature mang đến trải nghiệm đẳng cấp với những ưu đãi độc quyền
@@ -119,7 +119,7 @@ export default function BenefitsGrid() {
                                 key={index}
                                 initial={{ opacity: 0, x: slideDirection, y: slideY }}
                                 whileInView={{ opacity: 1, x: 0, y: 0 }}
-                                viewport={{ once: true, margin: "-80px" }}
+                                viewport={{ once: false, margin: "-80px" }}
                                 transition={{ duration: 0.8, delay: index * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
                                 whileHover={{ y: -8, scale: 1.02 }}
                                 className="group relative"
@@ -136,7 +136,7 @@ export default function BenefitsGrid() {
                                         <div className="absolute -inset-1 bg-gradient-to-tr from-[#e8e8e8]/20 via-transparent to-white/10 rounded-xl blur-sm transform -rotate-6" />
 
                                         {/* Silver Metallic Icon Container */}
-                                        <div className="relative p-4 rounded-xl bg-gradient-to-br from-[#d0d0d0] via-[#f0f0f0] to-[#b8b8b8] shadow-lg">
+                                        <div className="relative p-4 rounded-xl bg-gradient-to-br from-[#d0d0d0] via-[#f0f0f0] to-[#b8b8b8] shadow-lg shimmer-auto">
                                             {/* Inner shine effect */}
                                             <div className="absolute inset-0 rounded-xl bg-gradient-to-tr from-white/60 via-transparent to-transparent" />
                                             {/* Metallic edge highlight */}

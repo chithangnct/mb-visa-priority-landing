@@ -53,7 +53,7 @@ export default function Header() {
                                 <a
                                     key={link.href}
                                     href={link.href}
-                                    className="btn-metallic text-sm py-2.5 px-6"
+                                    className="btn-metallic shimmer-hover text-sm py-2.5 px-6"
                                 >
                                     {link.label}
                                 </a>

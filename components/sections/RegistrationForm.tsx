@@ -27,7 +27,7 @@ const incomeOptions = [
 
 export default function RegistrationForm() {
     const ref = useRef(null);
-    const isInView = useInView(ref, { once: true, margin: "-100px" });
+    const isInView = useInView(ref, { once: false, margin: "-100px" });
     const [submitStatus, setSubmitStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
     const {
@@ -73,14 +73,14 @@ export default function RegistrationForm() {
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false }}
                         className="text-center mb-12"
                     >
                         <p className="text-[#c0c0c0] uppercase tracking-[0.2em] text-sm mb-4">
                             Đăng ký ngay
                         </p>
                         <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-                            Trở thành chủ thẻ <TextMorphInline className="text-gradient-gold" stagger={0.05}>VIP</TextMorphInline>
+                            <TextMorphInline className="text-white" stagger={0.05}>Trở thành chủ thẻ </TextMorphInline><TextMorphInline className="text-gradient-gold" stagger={0.05} delay={0.5}>VIP</TextMorphInline>
                         </h2>
                         <p className="text-[#94a3b8]">
                             Để lại thông tin, chúng tôi sẽ liên hệ tư vấn trong 24h
@@ -207,7 +207,7 @@ export default function RegistrationForm() {
                                 <button
                                     type="submit"
                                     disabled={submitStatus === "loading"}
-                                    className="w-full btn-metallic py-4 text-base disabled:opacity-70 disabled:cursor-not-allowed"
+                                    className="w-full btn-metallic shimmer-hover py-4 text-base disabled:opacity-70 disabled:cursor-not-allowed"
                                 >
                                     {submitStatus === "loading" ? (
                                         <span className="flex items-center justify-center gap-2">

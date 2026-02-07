@@ -14,7 +14,7 @@ const lounges = [
 
 export default function LoungeAccess() {
     const ref = useRef(null);
-    const isInView = useInView(ref, { once: true, margin: "-100px" });
+    const isInView = useInView(ref, { once: false, margin: "-100px" });
 
     return (
         <section id="lounge" className="section relative overflow-hidden bg-accent-section">
@@ -37,7 +37,7 @@ export default function LoungeAccess() {
                         <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
                             <TextMorphInline className="text-gradient-silver" stagger={0.03}>Phòng chờ sân bay</TextMorphInline>
                             <br />
-                            hạng thương gia
+                            <TextMorphInline className="text-white" stagger={0.03} delay={0.55}>hạng thương gia</TextMorphInline>
                         </h2>
 
                         <p className="text-[#94a3b8] text-lg mb-8">
