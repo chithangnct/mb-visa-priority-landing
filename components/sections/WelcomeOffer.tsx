@@ -17,7 +17,7 @@ export default function WelcomeOffer() {
     const isInView = useInView(ref, { once: true, margin: "-100px" });
 
     return (
-        <section className="section relative overflow-hidden bg-transparent">
+        <section className="section relative overflow-hidden bg-accent-section">
             {/* Background Overlay */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#0a1628]/90 via-transparent to-[#0a1628]/90" />
 
@@ -26,9 +26,9 @@ export default function WelcomeOffer() {
                     {/* Left - Content */}
                     <motion.div
                         ref={ref}
-                        initial={{ opacity: 0, x: -30 }}
+                        initial={{ opacity: 0, x: -80 }}
                         animate={isInView ? { opacity: 1, x: 0 } : {}}
-                        transition={{ duration: 0.6 }}
+                        transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
                     >
                         {/* Badge */}
                         <motion.div
@@ -85,9 +85,9 @@ export default function WelcomeOffer() {
 
                     {/* Right - Visual */}
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                        transition={{ duration: 0.8, delay: 0.3 }}
+                        initial={{ opacity: 0, x: 80 }}
+                        animate={isInView ? { opacity: 1, x: 0 } : {}}
+                        transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
                         className="relative flex justify-center"
                     >
                         {/* Glow background */}

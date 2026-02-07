@@ -62,18 +62,18 @@ export default function Hero() {
 
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-            {/* Hero Background Image - 16:9 */}
+            {/* Hero Background Image */}
             <div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                style={{ backgroundImage: "url('/backgrounds/hero-bg-16-9.png')" }}
+                style={{ backgroundImage: "url('/backgrounds/hero-bg.png')" }}
             />
 
             {/* Dark navy overlay */}
-            <div className="absolute inset-0 bg-[#040a14]/85" />
+            <div className="absolute inset-0 bg-[#040a14]/80" />
 
             {/* Gradient overlays for text readability */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#040a14]/95 via-[#040a14]/70 to-[#040a14]/40" />
-            <div className="absolute inset-0 bg-gradient-to-b from-[#040a14]/60 via-transparent to-[#040a14]/80" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#040a14]/90 via-[#040a14]/60 to-[#040a14]/30" />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#040a14]/50 via-transparent to-[#040a14]/70" />
             <div className="vignette" />
 
             {/* Content */}

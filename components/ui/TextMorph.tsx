@@ -22,9 +22,9 @@ interface TextMorphProps {
 const charVariants: Variants = {
     hidden: {
         opacity: 0,
-        filter: "blur(12px)",
-        scale: 1.3,
-        y: 8,
+        filter: "blur(10px)",
+        scale: 1.15,
+        y: 6,
     },
     visible: (custom: { duration: number; delay: number }) => ({
         opacity: 1,
@@ -44,8 +44,8 @@ export default function TextMorph({
     className = "",
     as: Tag = "h2",
     delay = 0,
-    charDuration = 0.5,
-    stagger = 0.03,
+    charDuration = 1,
+    stagger = 0.08,
     once = true,
     immediate = false,
 }: TextMorphProps) {
@@ -63,7 +63,7 @@ export default function TextMorph({
     }, [children]);
 
     return (
-        <Tag className={className} style={{ display: "block" }}>
+        <Tag style={{ display: "block" }}>
             <span ref={ref} style={{ display: "inline" }} aria-label={children}>
                 {chars.map((item, index) => {
                     if (item.isSpace) {
@@ -77,6 +77,7 @@ export default function TextMorph({
                     return (
                         <motion.span
                             key={item.key}
+                            className={className}
                             custom={{
                                 duration: charDuration,
                                 delay: delay + index * stagger,
@@ -86,6 +87,8 @@ export default function TextMorph({
                             animate={shouldAnimate ? "visible" : "hidden"}
                             style={{
                                 display: "inline-block",
+                                padding: "0.15em 0.02em",
+                                margin: "-0.15em -0.02em",
                                 willChange: "transform, opacity, filter",
                             }}
                         >
@@ -118,8 +121,8 @@ export function TextMorphInline({
     children,
     className = "",
     delay = 0,
-    charDuration = 0.45,
-    stagger = 0.025,
+    charDuration = 0.9,
+    stagger = 0.07,
     once = true,
     immediate = false,
     parentInView,
@@ -137,7 +140,7 @@ export function TextMorphInline({
     }, [children]);
 
     return (
-        <span ref={ref} className={className} style={{ display: "inline" }} aria-label={children}>
+        <span ref={ref} style={{ display: "inline" }} aria-label={children}>
             {chars.map((item, index) => {
                 if (item.isSpace) {
                     return (
@@ -150,6 +153,7 @@ export function TextMorphInline({
                 return (
                     <motion.span
                         key={item.key}
+                        className={className}
                         custom={{
                             duration: charDuration,
                             delay: delay + index * stagger,
@@ -159,6 +163,8 @@ export function TextMorphInline({
                         animate={shouldAnimate ? "visible" : "hidden"}
                         style={{
                             display: "inline-block",
+                            padding: "0.15em 0.02em",
+                            margin: "-0.15em -0.02em",
                             willChange: "transform, opacity, filter",
                         }}
                     >

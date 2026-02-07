@@ -112,10 +112,15 @@ export default function BenefitsGrid() {
                 >
                     {benefits.map((benefit, index) => {
                         const Icon = benefit.icon;
+                        const slideDirection = index === 0 ? -80 : index === 2 ? 80 : 0;
+                        const slideY = index === 1 ? 60 : 0;
                         return (
                             <motion.div
                                 key={index}
-                                variants={staggerItem}
+                                initial={{ opacity: 0, x: slideDirection, y: slideY }}
+                                whileInView={{ opacity: 1, x: 0, y: 0 }}
+                                viewport={{ once: true, margin: "-80px" }}
+                                transition={{ duration: 0.8, delay: index * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
                                 whileHover={{ y: -8, scale: 1.02 }}
                                 className="group relative"
                             >

@@ -696,6 +696,30 @@ body {
   background: radial-gradient(ellipse at center, var(--tw-gradient-from), var(--tw-gradient-to));
 }
 
+/* Accent section background with bgbody image */
+.bg-accent-section {
+  position: relative;
+  background:
+    url('/backgrounds/bgbody.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bg-accent-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #040a14 0%, rgba(4, 10, 20, 0.82) 15%, rgba(4, 10, 20, 0.75) 50%, rgba(4, 10, 20, 0.82) 85%, #040a14 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-accent-section > * {
+  position: relative;
+  z-index: 1;
+}
+
 /* ============================================
    SCROLLBAR
    ============================================ */

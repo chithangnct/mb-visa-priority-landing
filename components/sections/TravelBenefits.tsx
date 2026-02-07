@@ -32,7 +32,7 @@ export default function TravelBenefits() {
     const isInView = useInView(ref, { once: true, margin: "-100px" });
 
     return (
-        <section className="section relative overflow-hidden bg-transparent">
+        <section className="section relative overflow-hidden bg-accent-section">
             {/* Background Overlay */}
             <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628]/90 via-transparent to-[#0a1628]/95" />
 
@@ -62,10 +62,15 @@ export default function TravelBenefits() {
                 >
                     {travelBenefits.map((benefit, index) => {
                         const Icon = benefit.icon;
+                        const slideDirection = index === 0 ? -80 : index === 2 ? 80 : 0;
+                        const slideY = index === 1 ? 60 : 0;
                         return (
                             <motion.div
                                 key={index}
-                                variants={staggerItem}
+                                initial={{ opacity: 0, x: slideDirection, y: slideY }}
+                                whileInView={{ opacity: 1, x: 0, y: 0 }}
+                                viewport={{ once: true, margin: "-80px" }}
+                                transition={{ duration: 0.8, delay: index * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
                                 whileHover={{ scale: 1.02, y: -4 }}
                                 className="glass-card-diamond p-6 flex items-center gap-4 group cursor-default"
                             >

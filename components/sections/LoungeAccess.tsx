@@ -17,7 +17,7 @@ export default function LoungeAccess() {
     const isInView = useInView(ref, { once: true, margin: "-100px" });
 
     return (
-        <section id="lounge" className="section relative overflow-hidden bg-transparent">
+        <section id="lounge" className="section relative overflow-hidden bg-accent-section">
             {/* Background Overlay */}
             <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628]/95 via-transparent to-[#0a1628]/95" />
 
@@ -26,9 +26,9 @@ export default function LoungeAccess() {
                     {/* Left - Stats */}
                     <motion.div
                         ref={ref}
-                        initial={{ opacity: 0, x: -30 }}
+                        initial={{ opacity: 0, x: -80 }}
                         animate={isInView ? { opacity: 1, x: 0 } : {}}
-                        transition={{ duration: 0.6 }}
+                        transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
                     >
                         <p className="text-[#c0c0c0] uppercase tracking-[0.2em] text-sm mb-4">
                             Đồng hành mọi chuyến đi
@@ -90,9 +90,9 @@ export default function LoungeAccess() {
 
                     {/* Right - Lounge Map */}
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                        transition={{ duration: 0.8, delay: 0.3 }}
+                        initial={{ opacity: 0, x: 80 }}
+                        animate={isInView ? { opacity: 1, x: 0 } : {}}
+                        transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
                         className="relative"
                     >
                         {/* Decorative glow */}

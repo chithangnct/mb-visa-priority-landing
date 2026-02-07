@@ -77,13 +77,7 @@ export default function CashbackSection() {
                     </p>
                 </motion.div>
 
-                <motion.div
-                    ref={ref}
-                    variants={staggerContainer}
-                    initial="hidden"
-                    animate={isInView ? "visible" : "hidden"}
-                    className="grid md:grid-cols-2 gap-8 lg:gap-12"
-                >
+                <div ref={ref} className="grid md:grid-cols-[1fr_auto_1fr] gap-4 lg:gap-6 items-center">
                     {/* 10% Cashback */}
                     <motion.div variants={staggerItem} className="glass-card-diamond p-8">
                         <div className="flex items-center gap-4 mb-6">
@@ -125,6 +119,32 @@ export default function CashbackSection() {
                         </div>
                     </motion.div>
 
+                    {/* Glowing Plus Sign - Combo indicator */}
+                    <motion.div
+                        variants={staggerItem}
+                        className="flex items-center justify-center py-4 md:py-0"
+                    >
+                        <motion.div
+                            animate={{
+                                scale: [1, 1.15, 1],
+                                opacity: [0.8, 1, 0.8],
+                            }}
+                            transition={{
+                                duration: 2.5,
+                                repeat: Infinity,
+                                ease: "easeInOut",
+                            }}
+                            className="relative flex items-center justify-center"
+                        >
+                            {/* Outer glow */}
+                            <div className="absolute w-16 h-16 rounded-full bg-gradient-radial from-[#c0c0c0]/25 via-[#c0c0c0]/10 to-transparent blur-md" />
+                            {/* Inner glow ring */}
+                            <div className="absolute w-12 h-12 rounded-full border border-[#c0c0c0]/30 bg-[#c0c0c0]/5 backdrop-blur-sm" />
+                            {/* Plus sign */}
+                            <span className="relative text-3xl font-light text-gradient-silver select-none z-10">+</span>
+                        </motion.div>
+                    </motion.div>
+
                     {/* 2% Cashback */}
                     <motion.div variants={staggerItem} className="glass-card-diamond p-8">
                         <div className="flex items-center gap-4 mb-6">
@@ -163,7 +183,7 @@ export default function CashbackSection() {
                             })}
                         </div>
                     </motion.div>
-                </motion.div>
+                </div>
 
                 {/* Birthday Bonus */}
                 <motion.div

@@ -8,39 +8,45 @@ import LoungeAccess from "@/components/sections/LoungeAccess";
 import LifestylePrivileges from "@/components/sections/LifestylePrivileges";
 import TravelBenefits from "@/components/sections/TravelBenefits";
 import RegistrationForm from "@/components/sections/RegistrationForm";
+import AppShell from "@/components/ui/AppShell";
+import BackToTop from "@/components/ui/BackToTop";
 
 export default function Home() {
   return (
-    <div className="bg-luxury-global min-h-screen">
-      <Header />
+    <AppShell>
+      <div className="bg-luxury-global min-h-screen">
+        <Header />
 
-      <main>
-        {/* Hero - 3D Card với The Prestige Facet */}
-        <Hero />
+        <main>
+          {/* Hero - 3D Card với The Prestige Facet */}
+          <Hero />
 
-        {/* 3 Key Benefits với animated counter */}
-        <BenefitsGrid />
+          {/* 3 Key Benefits với animated counter */}
+          <BenefitsGrid />
 
-        {/* Ưu đãi chào mừng 3,000,000 VND */}
-        <WelcomeOffer />
+          {/* Ưu đãi chào mừng 3,000,000 VND */}
+          <WelcomeOffer />
 
-        {/* Hoàn tiền 10% + 2% với interactive selector */}
-        <CashbackSection />
+          {/* Hoàn tiền 10% + 2% với interactive selector */}
+          <CashbackSection />
 
-        {/* Phòng chờ sân bay 4+4 */}
-        <LoungeAccess />
+          {/* Phòng chờ sân bay 4+4 */}
+          <LoungeAccess />
 
-        {/* Fine Dining, Fashion, Golf */}
-        <LifestylePrivileges />
+          {/* Fine Dining, Fashion, Golf */}
+          <LifestylePrivileges />
 
-        {/* Travel: Agoda, Visa Miles, FX */}
-        <TravelBenefits />
+          {/* Travel: Agoda, Visa Miles, FX */}
+          <TravelBenefits />
 
-        {/* Form đăng ký */}
-        <RegistrationForm />
-      </main>
+          {/* Form đăng ký */}
+          <RegistrationForm />
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+      <BackToTop />
+    </AppShell>
   );
 }
+
