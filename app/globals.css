@@ -1,26 +1,753 @@
 @import "tailwindcss";
 
+/* ============================================
+   MB VISA PRIORITY SIGNATURE - DESIGN SYSTEM
+   Theme: "The Prestige Facet" - Dark Navy Luxury
+   ============================================ */
+
+/* CSS Custom Properties */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Background Colors */
+  --bg-primary: #0a1628;
+  --bg-secondary: #1a2a5e;
+  --bg-surface: #1e3a8a;
+  --bg-card: rgba(30, 58, 138, 0.6);
+
+  /* Text Colors */
+  --text-primary: #ffffff;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  /* Accent Colors */
+  --accent-silver: #c0c0c0;
+  --accent-platinum: #e8e8e8;
+  --accent-gold: #d4af37;
+
+  /* Effects */
+  --glow-silver: rgba(192, 192, 192, 0.15);
+  --glow-blue: rgba(30, 58, 138, 0.4);
+
+  /* Glassmorphism */
+  --glass-bg: rgba(26, 42, 94, 0.4);
+  --glass-border: rgba(192, 192, 192, 0.1);
+
+  /* Spacing */
+  --section-padding: clamp(4rem, 10vw, 8rem);
+
+  /* Animation */
+  --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* Selection */
+::selection {
+  background: var(--accent-silver);
+  color: var(--bg-primary);
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+
+.font-display {
+  font-family: var(--font-playfair), Georgia, serif;
+}
+
+.font-script {
+  font-family: var(--font-great-vibes), cursive;
+}
+
+.text-gradient-silver {
+  background: linear-gradient(135deg, var(--accent-silver) 0%, var(--accent-platinum) 50%, var(--accent-silver) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #d4af37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+/* Shimmer Effect */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, var(--accent-silver), var(--accent-platinum), var(--accent-silver));
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite linear;
+}
+
+/* Floating Animation */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Glow Pulse */
+@keyframes glow-pulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px var(--glow-silver), 0 0 40px var(--glow-blue);
+  }
+
+  50% {
+    box-shadow: 0 0 30px var(--glow-silver), 0 0 60px var(--glow-blue);
+  }
+}
+
+.animate-glow {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* Light Streak */
+@keyframes light-streak {
+  0% {
+    left: -100%;
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    left: 200%;
+    opacity: 0;
+  }
+}
+
+.light-streak {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transform: skewX(-25deg);
+  animation: light-streak 4s ease-in-out infinite;
+}
+
+/* Fade In Up */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   COMPONENTS
+   ============================================ */
+
+/* Glass Card */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+}
+
+/* Premium Button */
+.btn-premium {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.5rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, var(--accent-silver) 0%, var(--accent-platinum) 100%);
+  color: var(--bg-primary);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: var(--transition-base);
+}
+
+.btn-premium:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 40px rgba(192, 192, 192, 0.3);
+}
+
+.btn-premium::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: 0.5s;
+}
+
+.btn-premium:hover::before {
+  left: 100%;
+}
+
+/* Secondary Button */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.5rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  border: 1px solid var(--accent-silver);
+  color: var(--accent-silver);
+  border-radius: 8px;
+  transition: var(--transition-base);
+}
+
+.btn-secondary:hover {
+  background: rgba(192, 192, 192, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Section */
+.section {
+  padding: var(--section-padding) 0;
+}
+
+/* Container */
+.container-custom {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .container-custom {
+    padding: 0 3rem;
+  }
+}
+
+/* Diamond Pattern Overlay */
+.diamond-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/diamond-pattern.png');
+  background-size: 400px;
+  background-position: right center;
+  background-repeat: no-repeat;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+/* Noise Texture */
+.noise-overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* Vignette */
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 0%, var(--bg-primary) 100%);
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+/* ============================================
+   DIAMOND LUXURY BACKGROUNDS
+   ============================================ */
+
+/* Hero Background with Diamond Pattern */
+.bg-diamond-hero {
+  position: relative;
+  background:
+    linear-gradient(135deg, rgba(10, 22, 40, 0.95) 0%, rgba(26, 42, 94, 0.9) 50%, rgba(10, 22, 40, 0.95) 100%),
+    url('/backgrounds/diamond-hero-bg.png');
+  background-size: cover, 600px;
+  background-position: center, center;
+  background-repeat: no-repeat, repeat;
+}
+
+/* Section Background with Diamond Facets */
+.bg-diamond-section {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(10, 22, 40, 0.85) 0%, rgba(26, 42, 94, 0.7) 50%, rgba(10, 22, 40, 0.9) 100%),
+    url('/backgrounds/diamond-section-bg.png');
+  background-size: cover, cover;
+  background-position: center, center left;
+  background-repeat: no-repeat, no-repeat;
+}
+
+/* Pattern Background */
+.bg-diamond-pattern {
+  position: relative;
+  background:
+    linear-gradient(135deg, rgba(10, 22, 40, 0.92) 0%, rgba(26, 42, 94, 0.85) 100%),
+    url('/backgrounds/diamond-pattern-bg.png');
+  background-size: cover, 800px;
+  background-position: center, top right;
+  background-repeat: no-repeat, no-repeat;
+}
+
+/* Alternate: Cobalt gradient */
+.bg-cobalt-luxury {
+  background: linear-gradient(135deg,
+      #0a1628 0%,
+      #1a2a5e 25%,
+      #1e3a8a 50%,
+      #1a2a5e 75%,
+      #0a1628 100%);
+}
+
+/* ============================================
+   METALLIC BUTTON EFFECTS
+   ============================================ */
+
+/* Metallic Primary Button - Brushed Steel */
+.btn-metallic {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 2.5rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+
+  /* Brushed metal gradient */
+  background: linear-gradient(135deg,
+      #c0c0c0 0%,
+      #e8e8e8 20%,
+      #f8f8f8 35%,
+      #d0d0d0 50%,
+      #a8a8a8 65%,
+      #c0c0c0 80%,
+      #e0e0e0 100%);
+  background-size: 200% 200%;
+
+  color: #0a1628;
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+
+  /* 3D depth effect */
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.5) inset,
+    0 -1px 0 rgba(0, 0, 0, 0.1) inset,
+    0 4px 15px rgba(0, 0, 0, 0.3),
+    0 1px 3px rgba(0, 0, 0, 0.2);
+
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-metallic:hover {
+  background-position: 100% 0;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.6) inset,
+    0 -1px 0 rgba(0, 0, 0, 0.15) inset,
+    0 8px 25px rgba(0, 0, 0, 0.35),
+    0 2px 5px rgba(0, 0, 0, 0.25),
+    0 0 30px rgba(192, 192, 192, 0.2);
+}
+
+.btn-metallic:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.1) inset,
+    0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Metallic shine sweep */
+.btn-metallic::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.4) 25%,
+      rgba(255, 255, 255, 0.8) 50%,
+      rgba(255, 255, 255, 0.4) 75%,
+      transparent 100%);
+  transition: left 0.6s ease;
+}
+
+.btn-metallic:hover::before {
+  left: 100%;
+}
+
+/* Metallic Secondary Button - Chrome Border */
+.btn-metallic-outline {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 2.5rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  font-size: 0.95rem;
+
+  background: transparent;
+  color: #e0e0e0;
+
+  /* Metallic border effect */
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background-image:
+    linear-gradient(rgba(10, 22, 40, 0.8), rgba(10, 22, 40, 0.8)),
+    linear-gradient(135deg, #c0c0c0 0%, #f0f0f0 25%, #c0c0c0 50%, #a0a0a0 75%, #c0c0c0 100%);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-metallic-outline:hover {
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 20px rgba(192, 192, 192, 0.15),
+    0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Gold Metallic Button */
+.btn-metallic-gold {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 2.5rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+
+  /* Gold metal gradient */
+  background: linear-gradient(135deg,
+      #d4af37 0%,
+      #f4d03f 20%,
+      #ffeaa7 35%,
+      #daa520 50%,
+      #b8860b 65%,
+      #d4af37 80%,
+      #f4d03f 100%);
+  background-size: 200% 200%;
+
+  color: #1a1a2e;
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.4) inset,
+    0 -1px 0 rgba(0, 0, 0, 0.15) inset,
+    0 4px 15px rgba(212, 175, 55, 0.3),
+    0 1px 3px rgba(0, 0, 0, 0.2);
+
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-metallic-gold:hover {
+  background-position: 100% 0;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.5) inset,
+    0 -1px 0 rgba(0, 0, 0, 0.2) inset,
+    0 8px 25px rgba(212, 175, 55, 0.4),
+    0 0 40px rgba(244, 208, 63, 0.2);
+}
+
+.btn-metallic-gold::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.3) 25%,
+      rgba(255, 255, 255, 0.6) 50%,
+      rgba(255, 255, 255, 0.3) 75%,
+      transparent 100%);
+  transition: left 0.6s ease;
+}
+
+.btn-metallic-gold:hover::before {
+  left: 100%;
+}
+
+/* ============================================
+   ENHANCED GLASS CARDS WITH DIAMOND EDGE
+   ============================================ */
+
+.glass-card-diamond {
+  background: linear-gradient(135deg, rgba(26, 42, 94, 0.5) 0%, rgba(30, 58, 138, 0.3) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(192, 192, 192, 0.15);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Diamond edge highlight */
+.glass-card-diamond::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(192, 192, 192, 0.3) 20%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(192, 192, 192, 0.3) 80%,
+      transparent 100%);
+}
+
+/* Corner accent */
+.glass-card-diamond::after {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(192, 192, 192, 0.1) 0%, transparent 60%);
+}
+
+/* ============================================
+   3D CARD EFFECTS
+   ============================================ */
+
+.card-3d-container {
+  perspective: 1000px;
+}
+
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card-3d:hover {
+  transform: rotateY(10deg) rotateX(-5deg) scale(1.02);
+}
+
+.card-3d .card-shine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 40%, rgba(255, 255, 255, 0.1) 50%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.card-3d:hover .card-shine {
+  opacity: 1;
+}
+
+/* ============================================
+   CARD LIGHT STREAK EFFECTS
+   ============================================ */
+
+/* Light streak moving around card edge */
+@keyframes lightStreakEdge {
+  0% {
+    background-position: 0% 0%, 100% 0%, 100% 100%, 0% 100%;
+  }
+
+  25% {
+    background-position: 100% 0%, 100% 100%, 0% 100%, 0% 0%;
+  }
+
+  50% {
+    background-position: 100% 100%, 0% 100%, 0% 0%, 100% 0%;
+  }
+
+  75% {
+    background-position: 0% 100%, 0% 0%, 100% 0%, 100% 100%;
+  }
+
+  100% {
+    background-position: 0% 0%, 100% 0%, 100% 100%, 0% 100%;
+  }
+}
+
+.light-streak-edge {
+  position: absolute;
+  inset: -2px;
+  border-radius: 16px;
+  background:
+    linear-gradient(90deg, transparent 0%, rgba(192, 220, 255, 0.8) 20%, rgba(255, 255, 255, 0.9) 50%, rgba(192, 220, 255, 0.8) 80%, transparent 100%),
+    linear-gradient(90deg, transparent 0%, rgba(192, 220, 255, 0.6) 20%, rgba(255, 255, 255, 0.7) 50%, rgba(192, 220, 255, 0.6) 80%, transparent 100%);
+  background-size: 200% 3px, 3px 200%;
+  background-repeat: no-repeat;
+  animation: lightStreakEdge 4s linear infinite;
+  opacity: 0.8;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: xor;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  padding: 2px;
+}
+
+/* Card border glow - rotating effect */
+@keyframes borderGlow {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.card-border-glow {
+  background: linear-gradient(90deg,
+      rgba(192, 220, 255, 0.1) 0%,
+      rgba(192, 220, 255, 0.4) 25%,
+      rgba(255, 255, 255, 0.6) 50%,
+      rgba(192, 220, 255, 0.4) 75%,
+      rgba(192, 220, 255, 0.1) 100%);
+  background-size: 200% 100%;
+  animation: borderGlow 3s ease-in-out infinite;
+  filter: blur(15px);
+  opacity: 0.6;
+}
+
+/* ============================================
+   GLOBAL PAGE BACKGROUND
+   ============================================ */
+
+/* Full page luxury background - used on main container */
+.bg-luxury-global {
+  background:
+    linear-gradient(180deg, #040a14 0%, #040a14 100%),
+    url('/backgrounds/luxury-full-page-bg.png');
+  background-color: #040a14;
+  background-size: cover, 800px;
+  background-position: center, center;
+  background-repeat: no-repeat, repeat;
+  background-attachment: fixed, fixed;
+}
+
+/* Radial gradient background */
+.bg-gradient-radial {
+  background: radial-gradient(ellipse at center, var(--tw-gradient-from), var(--tw-gradient-to));
+}
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-secondary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--bg-surface);
+}
+
+/* ============================================
+   FORM STYLES
+   ============================================ */
+
+.input-premium {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: rgba(10, 22, 40, 0.8);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: var(--transition-base);
+}
+
+.input-premium:focus {
+  outline: none;
+  border-color: var(--accent-silver);
+  box-shadow: 0 0 0 3px rgba(192, 192, 192, 0.1);
+}
+
+.input-premium::placeholder {
+  color: var(--text-muted);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .section {
+    padding: 4rem 0;
+  }
 }
