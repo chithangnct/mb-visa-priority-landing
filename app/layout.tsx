@@ -25,9 +25,9 @@ const greatVibes = Great_Vibes({
 
 // Metadata
 export const metadata: Metadata = {
-  title: "MB Visa Priority Signature | Đặc Quyền Thượng Lưu",
+  title: "MB Priority Visa Signature | Đặc Quyền Thượng Lưu",
   description:
-    "Thẻ tín dụng MB Visa Priority Signature - Đặc quyền toàn diện, chia sẻ cùng người thân. Hoàn tiền đến 12.6 triệu/năm, phòng chờ sân bay miễn phí, ưu đãi 10 lĩnh vực.",
+    "Thẻ tín dụng MB Priority Visa Signature - Đặc quyền toàn diện, chia sẻ cùng người thân. Hoàn tiền đến 12.6 triệu/năm, phòng chờ sân bay miễn phí, ưu đãi 10 lĩnh vực.",
   keywords: [
     "MB Bank",
     "Visa Signature",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     "hoàn tiền",
   ],
   openGraph: {
-    title: "MB Visa Priority Signature | Đặc Quyền Thượng Lưu",
+    title: "MB Priority Visa Signature | Đặc Quyền Thượng Lưu",
     description:
       "Đặc quyền toàn diện, chia sẻ cùng người thân. Hoàn tiền đến 12.6 triệu/năm.",
     type: "website",
@@ -48,13 +48,13 @@ export const metadata: Metadata = {
         url: "/images/card-front.png",
         width: 1200,
         height: 630,
-        alt: "MB Visa Priority Signature Card",
+        alt: "MB Priority Visa Signature Card",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "MB Visa Priority Signature",
+    title: "MB Priority Visa Signature",
     description: "Đặc quyền thượng lưu, chia sẻ cùng người thân",
     images: ["/images/card-front.png"],
   },

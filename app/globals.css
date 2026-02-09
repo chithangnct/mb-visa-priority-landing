@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* ============================================
-   MB VISA PRIORITY SIGNATURE - DESIGN SYSTEM
+   MB PRIORITY VISA SIGNATURE - DESIGN SYSTEM
    Theme: "The Prestige Facet" - Dark Navy Luxury
    ============================================ */
 
@@ -77,11 +77,50 @@ body {
   background-clip: text;
 }
 
+/* Shimmer text effect - light sweep across text */
+.shimmer-text {
+  background: linear-gradient(90deg,
+      var(--accent-silver) 0%,
+      var(--accent-platinum) 25%,
+      #ffffff 50%,
+      var(--accent-platinum) 75%,
+      var(--accent-silver) 100%);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer-text-sweep 3s ease-in-out infinite;
+}
+
+@keyframes shimmer-text-sweep {
+  0% {
+    background-position: 100% 0;
+  }
+
+  100% {
+    background-position: -100% 0;
+  }
+}
+
 .text-gradient-gold {
   background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #d4af37 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.shimmer-text-gold {
+  background: linear-gradient(90deg,
+      #d4af37 0%,
+      #f4d03f 25%,
+      #fff8dc 50%,
+      #f4d03f 75%,
+      #d4af37 100%);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer-text-sweep 3s ease-in-out infinite;
 }
 
 /* ============================================

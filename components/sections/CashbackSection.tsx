@@ -69,7 +69,7 @@ export default function CashbackSection() {
                         Hoàn tiền thông minh
                     </p>
                     <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-                        <TextMorphInline className="text-white" stagger={0.03}>Hoàn tiền đến </TextMorphInline><TextMorphInline className="text-gradient-silver" stagger={0.03} delay={0.45}>800,000 VND</TextMorphInline><TextMorphInline className="text-white" stagger={0.03} delay={0.8}>/kỳ</TextMorphInline>
+                        <TextMorphInline className="text-white" stagger={0.03}>Hoàn tiền đến </TextMorphInline><TextMorphInline className="text-gradient-silver" stagger={0.03} delay={0.45}>800,000 đồng</TextMorphInline><TextMorphInline className="text-white" stagger={0.03} delay={0.8}>/kỳ</TextMorphInline>
                     </h2>
                     <p className="text-[#94a3b8] max-w-2xl mx-auto">
                         Chọn lĩnh vực ưu đãi phù hợp với phong cách sống của bạn
@@ -87,7 +87,7 @@ export default function CashbackSection() {
                             </div>
                             <div>
                                 <h3 className="text-xl font-semibold text-white">Hoàn tiền</h3>
-                                <p className="text-sm text-[#94a3b8]">Tối đa 400,000 VNĐ/kỳ</p>
+                                <p className="text-sm text-[#94a3b8]">Tối đa 400,000 đồng/kỳ</p>
                             </div>
                         </div>
 
@@ -152,7 +152,7 @@ export default function CashbackSection() {
                             </div>
                             <div>
                                 <h3 className="text-xl font-semibold text-white">Hoàn tiền</h3>
-                                <p className="text-sm text-[#94a3b8]">Tối đa 400,000 VNĐ/kỳ</p>
+                                <p className="text-sm text-[#94a3b8]">Tối đa 400,000 đồng/kỳ</p>
                             </div>
                         </div>
 

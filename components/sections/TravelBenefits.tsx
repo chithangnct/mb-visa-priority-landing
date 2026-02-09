@@ -16,7 +16,7 @@ const travelBenefits = [
     {
         icon: Plane,
         title: "Visa Dặm Bay",
-        discount: "2 dặm / 20,000 VNĐ",
+        discount: "2 dặm / 20,000 đồng",
         description: "Nhận dặm bay cho chi tiêu nước ngoài",
     },
     {

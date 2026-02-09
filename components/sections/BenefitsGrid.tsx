@@ -11,9 +11,9 @@ const benefits = [
         icon: Banknote,
         value: 12.6,
         suffix: " triệu",
-        unit: "VND/năm",
+        unit: "đồng/năm",
         title: "Hoàn tiền",
-        description: "Hoàn tiền lên đến 800,000 VND mỗi kỳ sao kê trên 10 lĩnh vực",
+        description: "Hoàn tiền lên đến 800,000 đồng mỗi kỳ sao kê trên 10 lĩnh vực",
         gradient: "from-[#c0c0c0] to-[#e8e8e8]",
     },
     {
@@ -98,7 +98,7 @@ export default function BenefitsGrid() {
                         <TextMorphInline className="text-white" stagger={0.04}>Đặc quyền </TextMorphInline><TextMorphInline className="text-gradient-silver" stagger={0.04} delay={0.4}>vượt trội</TextMorphInline>
                     </h2>
                     <p className="text-[#94a3b8] max-w-2xl mx-auto">
-                        Thẻ MB Visa Priority Signature mang đến trải nghiệm đẳng cấp với những ưu đãi độc quyền
+                        Thẻ MB Priority Visa Signature mang đến trải nghiệm đẳng cấp với những ưu đãi độc quyền
                     </p>
                 </motion.div>
 

@@ -16,9 +16,8 @@ const privileges = [
             "Yen Sushi & Sake Pub",
             "Chapter Dining & Grill",
             "Masu, Barbak",
-            "Tặng 1 món tại Starbucks sân bay",
         ],
-        note: "Đặt trước qua tổng đài 8428 7301 2700",
+        note: "Áp dụng khi đặt trước cho tối thiểu 2 người qua tổng đài và thanh toán trực tiếp tại Nhà Hàng",
     },
     {
         icon: ShoppingBag,
@@ -38,7 +37,7 @@ const privileges = [
         icon: Trophy,
         title: "Golf Privilege",
         discount: "-500K",
-        description: "Giảm 500,000 VNĐ phí chơi Golf",
+        description: "Giảm 500,000 đồng phí chơi Golf",
         image: "/images/lifestyle-golf.png",
         details: [
             "60 sân Golf toàn quốc",
@@ -46,7 +45,7 @@ const privileges = [
             "Thanh toán bằng thẻ hợp lệ",
             "Tối thiểu 2 người",
         ],
-        note: "Đặt trước qua tổng đài MB",
+        note: "Áp dụng khi đặt trước qua tổng đài 028 7301 2700",
     },
 ];
 
@@ -71,9 +70,13 @@ function PrivilegeCard({
                         <Icon className="relative w-5 h-5 md:w-6 md:h-6 text-[#1a2a5e]" />
                     </div>
                 </div>
-                <span className="text-xl md:text-2xl font-bold text-white">
+                <motion.span
+                    animate={{ opacity: [0.85, 1, 0.85] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                    className="text-3xl md:text-4xl font-bold text-gradient-gold shimmer-text-gold drop-shadow-[0_0_12px_rgba(212,175,55,0.4)]"
+                >
                     {privilege.discount}
-                </span>
+                </motion.span>
             </div>
 
             {/* Title & Description */}

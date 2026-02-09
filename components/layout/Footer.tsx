@@ -5,7 +5,7 @@ import { Phone, Mail, Globe } from "lucide-react";
 export default function Footer() {
     return (
         <footer className="relative bg-[#0a1628] border-t border-white/10">
-            <div className="container-custom pt-12 pb-10">
+            <div className="container-custom pt-32 pb-10">
                 {/* Logo */}
                 <div className="flex justify-center mb-10">
                     <a href="#">
@@ -30,8 +30,8 @@ export default function Footer() {
                             <Phone className="w-5 h-5 text-[#c0c0c0]" />
                         </div>
                         <div>
-                            <p className="text-white font-semibold italic mb-1">Hotline</p>
                             <a href="tel:1900545426" className="text-[#94a3b8] hover:text-white transition-colors text-sm block">
+                                <span className="text-white font-semibold">Hotline</span>{" "}
                                 1900 545426
                             </a>
                             <a href="tel:+842437674050" className="text-[#94a3b8] hover:text-white transition-colors text-sm block">
@@ -46,8 +46,8 @@ export default function Footer() {
                             <Mail className="w-5 h-5 text-[#c0c0c0]" />
                         </div>
                         <div>
-                            <p className="text-white font-semibold italic mb-1">Email cho chúng tôi</p>
                             <a href="mailto:mb247@mbbank.com.vn" className="text-[#94a3b8] hover:text-white transition-colors text-sm">
+                                <span className="text-white font-semibold">Email</span>{" "}
                                 mb247@mbbank.com.vn
                             </a>
                         </div>
@@ -59,13 +59,13 @@ export default function Footer() {
                             <Globe className="w-5 h-5 text-[#c0c0c0]" />
                         </div>
                         <div>
-                            <p className="text-white font-semibold italic mb-1">Liên hệ MB247</p>
                             <a
                                 href="https://www.mbbank.com.vn/Contact"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-[#94a3b8] hover:text-white transition-colors text-sm"
                             >
+                                <span className="text-white font-semibold">Liên hệ</span>{" "}
                                 www.mbbank.com.vn/Contact
                             </a>
                         </div>

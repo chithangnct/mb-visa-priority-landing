@@ -7,7 +7,7 @@ import Image from "next/image";
 import { TextMorphInline } from "@/components/ui/TextMorph";
 
 const conditions = [
-    "Chi tiêu 60 triệu VND trong vòng 60 ngày",
+    "Chi tiêu 60 triệu đồng trong vòng 60 ngày",
     "Kể từ ngày kích hoạt thẻ",
     "Hoàn tiền trực tiếp vào thẻ tín dụng",
 ];
@@ -43,7 +43,7 @@ export default function WelcomeOffer() {
 
                         {/* Title */}
                         <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-                            <TextMorphInline className="text-white" stagger={0.03}>Nhận ngay </TextMorphInline><TextMorphInline className="text-gradient-gold" stagger={0.03} delay={0.3}>3,000,000 VND</TextMorphInline>
+                            <TextMorphInline className="text-white" stagger={0.03}>Nhận ngay </TextMorphInline><TextMorphInline className="text-gradient-gold" stagger={0.03} delay={0.3}>3,000,000 đồng</TextMorphInline>
                         </h2>
 
                         <p className="text-[#94a3b8] text-lg mb-8">
@@ -114,7 +114,7 @@ export default function WelcomeOffer() {
                             >
                                 <Image
                                     src="/images/card-front.png"
-                                    alt="MB Visa Priority Signature"
+                                    alt="MB Priority Visa Signature"
                                     fill
                                     className="object-contain"
                                 />

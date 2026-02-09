@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
                         phone,
                         income,
                         timestamp: new Date().toISOString(),
-                        source: "MB Visa Priority Signature Landing Page",
+                        source: "MB Priority Visa Signature Landing Page",
                     }),
                 });
 

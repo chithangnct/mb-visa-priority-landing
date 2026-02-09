@@ -28,7 +28,7 @@ export default function Home() {
           {/* 3 Key Benefits với animated counter */}
           <BenefitsGrid />
 
-          {/* Ưu đãi chào mừng 3,000,000 VND */}
+          {/* Ưu đãi chào mừng 3,000,000 đồng */}
           <WelcomeOffer />
 
           {/* Hoàn tiền 10% + 2% với interactive selector */}

@@ -83,7 +83,9 @@ export default function LoungeAccess() {
                         >
                             <Plus className="w-5 h-5 text-[#c0c0c0]" />
                             <span className="text-[#94a3b8]">
-                                Tích lũy thêm tới <span className="text-white font-semibold">24 lượt/năm</span> khi chi tiêu
+                                Tích lũy thêm tới <span className="text-white font-semibold">24 lượt/năm</span> khi chi tiêu hoặc quy đổi <span className="text-white font-semibold">12 lượt</span> dịch vụ đón tiễn ưu tiên (flash-track)
+                                <br />
+                                <span className="text-xs">(Tặng thêm mỗi lượt trên mỗi 20 triệu đồng chi tiêu)</span>
                             </span>
                         </motion.div>
                     </motion.div>
@@ -105,7 +107,7 @@ export default function LoungeAccess() {
                                 </div>
                                 <div>
                                     <h3 className="text-xl font-semibold text-white">11 Phòng chờ</h3>
-                                    <p className="text-sm text-[#94a3b8]">Tại các sân bay quốc nội</p>
+                                    <p className="text-sm text-[#94a3b8]">Áp dụng với các chuyến bay trong nước</p>
                                 </div>
                             </div>
 

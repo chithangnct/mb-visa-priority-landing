@@ -59,7 +59,7 @@ export default function Hero() {
                             variants={staggerItem}
                             className="text-lg md:text-xl text-[#94a3b8] max-w-lg mx-auto lg:mx-0 mb-8"
                         >
-                            Thẻ MB Visa Priority Signature — Đặc quyền vượt trội dành cho bạn và người thân, hoàn tiền lên đến{" "}
+                            Thẻ MB Priority Visa Signature — Đặc quyền vượt trội dành cho bạn và người thân, hoàn tiền lên đến{" "}
                             <span className="text-white font-semibold">12.6 triệu đồng/năm</span>
                         </motion.p>
 
@@ -124,7 +124,7 @@ export default function Hero() {
                             >
                                 <img
                                     src="/images/hero-cards.png"
-                                    alt="MB Visa Priority Signature Cards"
+                                    alt="MB Priority Visa Signature Cards"
                                     className="relative z-10 drop-shadow-2xl w-[512px] md:w-[640px] lg:w-[736px] h-auto"
                                 />
                             </motion.div>
