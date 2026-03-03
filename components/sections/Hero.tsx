@@ -47,11 +47,11 @@ export default function Hero() {
                         {/* Main Headline */}
                         <motion.h1
                             variants={staggerItem}
-                            className="font-display text-4xl md:text-5xl lg:text-[3.5rem] xl:text-6xl font-bold leading-tight mb-6"
+                            className="font-display text-[2rem] md:text-5xl lg:text-[3.5rem] xl:text-6xl font-bold leading-tight mb-6"
                         >
-                            <TextMorphInline className="text-gradient-silver" immediate delay={0.3} stagger={0.04}>Đặc quyền toàn diện,</TextMorphInline>
+                            <TextMorphInline className="text-gradient-silver" immediate delay={0.15} stagger={0.04}>Đặc quyền toàn diện,</TextMorphInline>
                             <br />
-                            <TextMorphInline className="text-gradient-silver" immediate delay={0.8} stagger={0.04}>chia sẻ cùng người thân</TextMorphInline>
+                            <TextMorphInline className="text-gradient-silver" immediate delay={0.2} stagger={0.04}>chia sẻ cùng người thân</TextMorphInline>
                         </motion.h1>
 
                         {/* Subheadline */}
@@ -69,9 +69,10 @@ export default function Hero() {
                             className="flex flex-wrap gap-3 justify-center lg:justify-start mb-10"
                         >
                             {[
-                                "4+4 Phòng chờ miễn phí",
-                                "Hoàn tiền 10%",
-                                "Ưu đãi 10 lĩnh vực",
+                                "4+4 lượt phòng chờ thương gia miễn phí",
+                                "Hoàn tới 5 triệu khi mở thẻ",
+                                "Hoàn đến 800,000 mỗi tháng",
+                                "Ưu đãi trên 10 lĩnh vực",
                             ].map((benefit, index) => (
                                 <span
                                     key={index}
@@ -103,8 +104,8 @@ export default function Hero() {
                             initial={{ scale: 0.8, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
                             transition={{
-                                duration: 1,
-                                delay: 0.5,
+                                duration: 0.5,
+                                delay: 0.25,
                                 ease: [0.22, 1, 0.36, 1],
                             }}
                             className="relative"

@@ -41,11 +41,11 @@ const benefits = [
 function Counter({ value, suffix = "", prefix = "" }: { value: number; suffix?: string; prefix?: string }) {
     const [count, setCount] = useState(0);
     const ref = useRef<HTMLSpanElement>(null);
-    const isInView = useInView(ref, { once: false, margin: "-100px" });
+    const isInView = useInView(ref, { once: true, margin: "-100px" });
 
     useEffect(() => {
         if (isInView) {
-            const duration = 2000;
+            const duration = 500;
             const steps = 60;
             const increment = value / steps;
             let current = 0;
@@ -75,7 +75,7 @@ function Counter({ value, suffix = "", prefix = "" }: { value: number; suffix?: 
 
 export default function BenefitsGrid() {
     const containerRef = useRef(null);
-    const isInView = useInView(containerRef, { once: false, margin: "-100px" });
+    const isInView = useInView(containerRef, { once: true, margin: "-100px" });
 
     return (
         <section id="benefits" className="section relative overflow-hidden">
@@ -87,15 +87,15 @@ export default function BenefitsGrid() {
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                     className="text-center mb-16"
                 >
                     <p className="text-[#c0c0c0] uppercase tracking-[0.2em] text-sm mb-4">
                         Quyền lợi nổi bật
                     </p>
-                    <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-                        <TextMorphInline className="text-white" stagger={0.04}>Đặc quyền </TextMorphInline><TextMorphInline className="text-gradient-silver" stagger={0.04} delay={0.4}>vượt trội</TextMorphInline>
+                    <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-relaxed">
+                        <TextMorphInline className="text-white" stagger={0.02}>Đặc quyền </TextMorphInline><TextMorphInline className="text-gradient-silver" stagger={0.02} delay={0.2}>vượt trội</TextMorphInline>
                     </h2>
                     <p className="text-[#94a3b8] max-w-2xl mx-auto">
                         Trải nghiệm đẳng cấp với những ưu đãi độc quyền từ MB Priority Visa Signature
@@ -119,7 +119,7 @@ export default function BenefitsGrid() {
                                 key={index}
                                 initial={{ opacity: 0, x: slideDirection, y: slideY }}
                                 whileInView={{ opacity: 1, x: 0, y: 0 }}
-                                viewport={{ once: false, margin: "-80px" }}
+                                viewport={{ once: true, margin: "-80px" }}
                                 transition={{ duration: 0.8, delay: index * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
                                 whileHover={{ y: -8, scale: 1.02 }}
                                 className="group relative"

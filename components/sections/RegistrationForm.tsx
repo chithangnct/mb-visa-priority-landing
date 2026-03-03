@@ -7,7 +7,7 @@ import { TextMorphInline } from "@/components/ui/TextMorph";
 
 export default function RegistrationForm() {
     const ref = useRef(null);
-    const isInView = useInView(ref, { once: false, margin: "-100px" });
+    const isInView = useInView(ref, { once: true, margin: "-100px" });
 
     return (
         <section id="register" className="section relative overflow-hidden bg-transparent">
@@ -20,14 +20,14 @@ export default function RegistrationForm() {
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: false }}
+                        viewport={{ once: true }}
                         className="text-center mb-12"
                     >
                         <p className="text-[#c0c0c0] uppercase tracking-[0.2em] text-sm mb-4">
                             Liên hệ ngay
                         </p>
-                        <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-                            <TextMorphInline className="text-white" stagger={0.05}>Tư vấn </TextMorphInline><TextMorphInline className="text-gradient-gold" stagger={0.05} delay={0.3}>sản phẩm</TextMorphInline>
+                        <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-relaxed">
+                            <TextMorphInline className="text-white" stagger={0.025}>Tư vấn </TextMorphInline><TextMorphInline className="text-gradient-gold" stagger={0.025} delay={0.15}>sản phẩm</TextMorphInline>
                         </h2>
                         <p className="text-[#94a3b8]">
                             Để được tư vấn về sản phẩm và phát hành thẻ

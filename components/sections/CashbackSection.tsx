@@ -34,7 +34,7 @@ const category2Percent = [
 
 export default function CashbackSection() {
     const ref = useRef(null);
-    const isInView = useInView(ref, { once: false, margin: "-100px" });
+    const isInView = useInView(ref, { once: true, margin: "-100px" });
     const [selected10, setSelected10] = useState<number | null>(0);
     const [selected2, setSelected2] = useState<number[]>([0, 1]);
 
@@ -62,14 +62,16 @@ export default function CashbackSection() {
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                     className="text-center mb-16"
                 >
                     <p className="text-[#c0c0c0] uppercase tracking-[0.2em] text-sm mb-4">
                         Hoàn tiền thông minh
                     </p>
-                    <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-                        <TextMorphInline className="text-white" stagger={0.03}>Hoàn tiền đến </TextMorphInline><TextMorphInline className="text-gradient-gold" stagger={0.03} delay={0.45}>800,000 đồng</TextMorphInline><TextMorphInline className="text-white" stagger={0.03} delay={0.8}>/kỳ</TextMorphInline>
+                    <h2 className="font-display text-[1.75rem] md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-relaxed">
+                        <TextMorphInline className="text-white" stagger={0.015}>Hoàn tiền đến</TextMorphInline>
+                        <br />
+                        <TextMorphInline className="text-gradient-gold" stagger={0.015} delay={0.22}>800,000 đồng/kỳ</TextMorphInline>
                     </h2>
                     <p className="text-[#94a3b8] max-w-2xl mx-auto">
                         Chọn lĩnh vực ưu đãi phù hợp với phong cách sống của bạn
@@ -188,7 +190,7 @@ export default function CashbackSection() {
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                     className="mt-12 text-center"
                 >
                     <div className="inline-flex items-center gap-4 glass-card-diamond px-8 py-6">

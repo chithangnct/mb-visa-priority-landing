@@ -29,7 +29,7 @@ const travelBenefits = [
 
 export default function TravelBenefits() {
     const ref = useRef(null);
-    const isInView = useInView(ref, { once: false, margin: "-100px" });
+    const isInView = useInView(ref, { once: true, margin: "-100px" });
 
     return (
         <section id="travel" className="section relative overflow-hidden bg-accent-section">
@@ -41,14 +41,14 @@ export default function TravelBenefits() {
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                     className="text-center mb-12"
                 >
                     <p className="text-[#c0c0c0] uppercase tracking-[0.2em] text-sm mb-4">
                         Đồng hành trên mọi hành trình
                     </p>
                     <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white">
-                        <TextMorphInline className="text-white" stagger={0.04}>Ưu đãi </TextMorphInline><TextMorphInline className="text-gradient-silver" stagger={0.04} delay={0.3}>du lịch</TextMorphInline>
+                        <TextMorphInline className="text-white" stagger={0.02}>Ưu đãi </TextMorphInline><TextMorphInline className="text-gradient-silver" stagger={0.02} delay={0.15}>du lịch</TextMorphInline>
                     </h2>
                 </motion.div>
 
@@ -69,7 +69,7 @@ export default function TravelBenefits() {
                                 key={index}
                                 initial={{ opacity: 0, x: slideDirection, y: slideY }}
                                 whileInView={{ opacity: 1, x: 0, y: 0 }}
-                                viewport={{ once: false, margin: "-80px" }}
+                                viewport={{ once: true, margin: "-80px" }}
                                 transition={{ duration: 0.8, delay: index * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
                                 whileHover={{ scale: 1.02, y: -4 }}
                                 className="glass-card-diamond p-6 flex items-center gap-4 group cursor-default"

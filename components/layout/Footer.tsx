@@ -5,7 +5,7 @@ import { Phone, Mail, Globe } from "lucide-react";
 export default function Footer() {
     return (
         <footer className="relative bg-[#0a1628] border-t border-white/10">
-            <div className="container-custom pt-32 pb-10">
+            <div className="container-custom pt-16 pb-10">
                 {/* Logo */}
                 <div className="flex justify-center mb-10">
                     <a href="#">
@@ -30,9 +30,9 @@ export default function Footer() {
                             <Phone className="w-5 h-5 text-[#c0c0c0]" />
                         </div>
                         <div>
-                            <a href="tel:1900545426" className="text-[#94a3b8] hover:text-white transition-colors text-sm block">
+                            <a href="tel:02422048899" className="text-[#94a3b8] hover:text-white transition-colors text-sm block">
                                 <span className="text-white font-semibold">Hotline</span>{" "}
-                                1900 545426
+                                024 2204 8899
                             </a>
                             <a href="tel:+842437674050" className="text-[#94a3b8] hover:text-white transition-colors text-sm block">
                                 (84-24) 3767 4050 <span className="text-[#64748b]">(quốc tế gọi về)</span>

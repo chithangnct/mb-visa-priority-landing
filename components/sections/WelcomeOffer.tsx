@@ -13,7 +13,7 @@ const conditions = [
 
 export default function WelcomeOffer() {
     const ref = useRef(null);
-    const isInView = useInView(ref, { once: false, margin: "-100px" });
+    const isInView = useInView(ref, { once: true, margin: "-100px" });
 
     return (
         <section id="welcome" className="section relative overflow-hidden bg-accent-section">
@@ -41,10 +41,10 @@ export default function WelcomeOffer() {
                         </motion.div>
 
                         {/* Title */}
-                        <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-                            <TextMorphInline className="text-white" stagger={0.03}>Tặng đến </TextMorphInline><TextMorphInline className="text-gradient-gold" stagger={0.03} delay={0.3}>5 triệu đồng</TextMorphInline>
+                        <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-relaxed">
+                            <TextMorphInline className="text-white" stagger={0.015}>Tặng đến </TextMorphInline><TextMorphInline className="text-gradient-gold" stagger={0.015} delay={0.15}>5 triệu đồng</TextMorphInline>
                             <br />
-                            <TextMorphInline className="text-white" stagger={0.03} delay={0.6}>cho chủ thẻ mới</TextMorphInline>
+                            <TextMorphInline className="text-white" stagger={0.015} delay={0.15}>cho chủ thẻ mới</TextMorphInline>
                         </h2>
 
                         {/* Conditions */}

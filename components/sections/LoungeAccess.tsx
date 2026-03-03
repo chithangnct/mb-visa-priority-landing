@@ -14,7 +14,7 @@ const lounges = [
 
 export default function LoungeAccess() {
     const ref = useRef(null);
-    const isInView = useInView(ref, { once: false, margin: "-100px" });
+    const isInView = useInView(ref, { once: true, margin: "-100px" });
 
     return (
         <section id="lounge" className="section relative overflow-hidden bg-accent-section">
@@ -22,7 +22,7 @@ export default function LoungeAccess() {
             <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628]/95 via-transparent to-[#0a1628]/95" />
 
             <div className="container-custom relative z-10">
-                <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
                     {/* Left - Stats */}
                     <motion.div
                         ref={ref}
@@ -34,10 +34,10 @@ export default function LoungeAccess() {
                             Đồng hành mọi chuyến đi
                         </p>
 
-                        <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-                            <TextMorphInline className="text-gradient-silver" stagger={0.03}>Phòng chờ sân bay</TextMorphInline>
+                        <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-relaxed">
+                            <TextMorphInline className="text-gradient-silver" stagger={0.015}>Phòng chờ sân bay</TextMorphInline>
                             <br />
-                            <TextMorphInline className="text-white" stagger={0.03} delay={0.55}>hạng thương gia</TextMorphInline>
+                            <TextMorphInline className="text-white" stagger={0.015} delay={0.28}>hạng thương gia</TextMorphInline>
                         </h2>
 
                         <p className="text-[#94a3b8] text-lg mb-8">
@@ -95,7 +95,7 @@ export default function LoungeAccess() {
                         initial={{ opacity: 0, x: 80 }}
                         animate={isInView ? { opacity: 1, x: 0 } : {}}
                         transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-                        className="relative"
+                        className="relative lg:mt-36"
                     >
                         {/* Decorative glow */}
                         <div className="absolute -inset-4 bg-gradient-to-r from-[#1e3a8a]/30 to-[#c0c0c0]/10 blur-3xl rounded-full" />

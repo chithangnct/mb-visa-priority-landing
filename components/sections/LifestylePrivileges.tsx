@@ -10,7 +10,7 @@ const privileges = [
         icon: UtensilsCrossed,
         title: "Fine Dining",
         discount: "-50%",
-        description: "Giảm 50% tại hơn 30 nhà hàng cao cấp",
+        description: "Giảm đến 50% tại hơn 30 nhà hàng cao cấp",
         image: "/images/lifestyle-dining.png",
         details: [
             "Yen Sushi & Sake Pub",
@@ -120,17 +120,17 @@ export default function LifestylePrivileges() {
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                     className="text-center mb-16"
                 >
                     <p className="text-[#c0c0c0] uppercase tracking-[0.2em] text-sm mb-4">
                         Phong cách sống thượng lưu
                     </p>
-                    <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-                        <TextMorphInline className="text-white" stagger={0.04}>Ưu đãi </TextMorphInline><TextMorphInline
+                    <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-relaxed">
+                        <TextMorphInline className="text-white" stagger={0.02}>Ưu đãi </TextMorphInline><TextMorphInline
                             className="text-gradient-silver"
-                            stagger={0.04}
-                            delay={0.3}
+                            stagger={0.02}
+                            delay={0.15}
                         >
                             đẳng cấp
                         </TextMorphInline>
@@ -145,7 +145,7 @@ export default function LifestylePrivileges() {
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                     transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
                     className="grid md:grid-cols-3 gap-6 lg:gap-8"
                 >
@@ -154,7 +154,7 @@ export default function LifestylePrivileges() {
                             key={index}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: false }}
+                            viewport={{ once: true }}
                             transition={{
                                 duration: 0.6,
                                 delay: index * 0.15,
