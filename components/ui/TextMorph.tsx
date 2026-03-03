@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useInView, Variants } from "framer-motion";
-import { useRef, useMemo } from "react";
+import { useRef, useMemo, useState, useEffect } from "react";
 
 interface TextMorphProps {
     children: string;
@@ -37,6 +37,14 @@ const charVariants: Variants = {
             ease: [0.22, 1, 0.36, 1],
         },
     }),
+    // Instant reveal for already-seen text
+    revealed: {
+        opacity: 1,
+        filter: "blur(0px)",
+        scale: 1,
+        y: 0,
+        transition: { duration: 0 },
+    },
 };
 
 export default function TextMorph({
@@ -44,14 +52,29 @@ export default function TextMorph({
     className = "",
     as: Tag = "h2",
     delay = 0,
-    charDuration = 1,
-    stagger = 0.08,
+    charDuration = 0.5,
+    stagger = 0.04,
     once = false,
     immediate = false,
 }: TextMorphProps) {
     const ref = useRef<HTMLDivElement>(null);
     const isInView = useInView(ref, { once, margin: "-80px" });
+    const [hasRevealed, setHasRevealed] = useState(false);
     const shouldAnimate = immediate || isInView;
+
+    // Track if text was already revealed
+    useEffect(() => {
+        if (shouldAnimate && !hasRevealed) {
+            setHasRevealed(true);
+        }
+    }, [shouldAnimate, hasRevealed]);
+
+    // Determine animation state
+    const getAnimateState = () => {
+        if (shouldAnimate) return hasRevealed && !isInView ? "revealed" : "visible";
+        if (hasRevealed) return "revealed";
+        return "hidden";
+    };
 
     // Split text into individual characters, preserving spaces
     const chars = useMemo(() => {
@@ -83,8 +106,8 @@ export default function TextMorph({
                                 delay: delay + index * stagger,
                             }}
                             variants={charVariants}
-                            initial="hidden"
-                            animate={shouldAnimate ? "visible" : "hidden"}
+                            initial={hasRevealed ? "revealed" : "hidden"}
+                            animate={getAnimateState()}
                             style={{
                                 display: "inline-block",
                                 padding: "0.15em 0.02em",
@@ -121,15 +144,30 @@ export function TextMorphInline({
     children,
     className = "",
     delay = 0,
-    charDuration = 0.9,
-    stagger = 0.07,
+    charDuration = 0.45,
+    stagger = 0.035,
     once = false,
     immediate = false,
     parentInView,
 }: TextMorphInlineProps) {
     const ref = useRef<HTMLSpanElement>(null);
     const isInView = useInView(ref, { once, margin: "-80px" });
+    const [hasRevealed, setHasRevealed] = useState(false);
     const shouldAnimate = immediate || parentInView || isInView;
+
+    // Track if text was already revealed
+    useEffect(() => {
+        if (shouldAnimate && !hasRevealed) {
+            setHasRevealed(true);
+        }
+    }, [shouldAnimate, hasRevealed]);
+
+    // Determine animation state
+    const getAnimateState = () => {
+        if (shouldAnimate) return hasRevealed && !isInView && !parentInView ? "revealed" : "visible";
+        if (hasRevealed) return "revealed";
+        return "hidden";
+    };
 
     const chars = useMemo(() => {
         return children.split("").map((char, index) => ({
@@ -159,8 +197,8 @@ export function TextMorphInline({
                             delay: delay + index * stagger,
                         }}
                         variants={charVariants}
-                        initial="hidden"
-                        animate={shouldAnimate ? "visible" : "hidden"}
+                        initial={hasRevealed ? "revealed" : "hidden"}
+                        animate={getAnimateState()}
                         style={{
                             display: "inline-block",
                             padding: "0.15em 0.02em",

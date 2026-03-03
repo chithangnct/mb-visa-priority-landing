@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useInView, AnimatePresence } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import { UtensilsCrossed, ShoppingBag, Trophy } from "lucide-react";
 import { TextMorphInline } from "@/components/ui/TextMorph";
 
@@ -109,28 +109,6 @@ function PrivilegeCard({
 
 export default function LifestylePrivileges() {
     const ref = useRef(null);
-    const isInView = useInView(ref, { once: false, margin: "-100px" });
-    const [activeStep, setActiveStep] = useState(-1);
-
-    // Auto-cycle: show each card one by one, then show all
-    useEffect(() => {
-        if (!isInView) {
-            setActiveStep(-1);
-            return;
-        }
-
-        setActiveStep(0);
-
-        const timers = [
-            setTimeout(() => setActiveStep(1), 3500),
-            setTimeout(() => setActiveStep(2), 7000),
-            setTimeout(() => setActiveStep(3), 10500), // 3 = show all
-        ];
-
-        return () => timers.forEach(clearTimeout);
-    }, [isInView]);
-
-    const showAll = activeStep === 3;
 
     return (
         <section id="lifestyle" className="section relative overflow-hidden bg-transparent">
@@ -163,94 +141,34 @@ export default function LifestylePrivileges() {
                     </p>
                 </motion.div>
 
-                {/* Sequential Cards with Images → then All Cards Grid */}
-                <AnimatePresence mode="wait">
-                    {!showAll && activeStep >= 0 && activeStep <= 2 ? (
+                {/* All Cards Grid */}
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: false }}
+                    transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+                    className="grid md:grid-cols-3 gap-6 lg:gap-8"
+                >
+                    {privileges.map((privilege, index) => (
                         <motion.div
-                            key={`step-${activeStep}`}
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 0.6 }}
-                            className="grid lg:grid-cols-[1fr_2fr] gap-8 items-stretch"
+                            key={index}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: false }}
+                            transition={{
+                                duration: 0.6,
+                                delay: index * 0.15,
+                                ease: [0.25, 0.46, 0.45, 0.94],
+                            }}
+                            whileHover={{ y: -8 }}
+                            className="group relative"
                         >
-                            {/* Left - Card (1/3) */}
-                            <motion.div
-                                initial={{ opacity: 0, x: -60 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{
-                                    duration: 0.7,
-                                    ease: [0.25, 0.46, 0.45, 0.94],
-                                }}
-                            >
-                                <PrivilegeCard privilege={privileges[activeStep]} />
-                            </motion.div>
-
-                            {/* Right - Image (2/3) */}
-                            <motion.div
-                                initial={{ opacity: 0, x: 60 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{
-                                    duration: 0.7,
-                                    delay: 0.2,
-                                    ease: [0.25, 0.46, 0.45, 0.94],
-                                }}
-                                className="relative rounded-2xl overflow-hidden aspect-[2/1] lg:aspect-auto"
-                            >
-                                <img
-                                    src={privileges[activeStep].image}
-                                    alt={privileges[activeStep].title}
-                                    className="absolute inset-0 w-full h-full object-cover rounded-2xl"
-                                />
-                                {/* Overlay gradient */}
-                                <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628]/40 via-transparent to-transparent rounded-2xl" />
-                                {/* Light streak */}
-                                <div className="light-streak" />
-                            </motion.div>
+                            {/* Glow Effect */}
+                            <div className="absolute -inset-0.5 bg-gradient-to-r from-[#c0c0c0]/10 to-[#1e3a8a]/10 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            <PrivilegeCard privilege={privilege} />
                         </motion.div>
-                    ) : showAll ? (
-                        <motion.div
-                            key="all-cards"
-                            initial={{ opacity: 0, y: 40 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-                            className="grid md:grid-cols-3 gap-6 lg:gap-8"
-                        >
-                            {privileges.map((privilege, index) => (
-                                <motion.div
-                                    key={index}
-                                    initial={{ opacity: 0, y: 30 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{
-                                        duration: 0.6,
-                                        delay: index * 0.15,
-                                        ease: [0.25, 0.46, 0.45, 0.94],
-                                    }}
-                                    whileHover={{ y: -8 }}
-                                    className="group relative"
-                                >
-                                    {/* Glow Effect */}
-                                    <div className="absolute -inset-0.5 bg-gradient-to-r from-[#c0c0c0]/10 to-[#1e3a8a]/10 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                                    <PrivilegeCard privilege={privilege} />
-                                </motion.div>
-                            ))}
-                        </motion.div>
-                    ) : null}
-                </AnimatePresence>
-
-                {/* Step Indicators */}
-                <div className="flex items-center justify-center gap-3 mt-8">
-                    {[0, 1, 2, 3].map((step) => (
-                        <button
-                            key={step}
-                            onClick={() => setActiveStep(step)}
-                            className={`h-1.5 rounded-full transition-all duration-500 ${step === activeStep
-                                ? "w-10 bg-gradient-to-r from-[#c0c0c0] to-white"
-                                : "w-4 bg-white/20 hover:bg-white/40"
-                                }`}
-                        />
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );

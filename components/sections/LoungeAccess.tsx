@@ -41,7 +41,7 @@ export default function LoungeAccess() {
                         </h2>
 
                         <p className="text-[#94a3b8] text-lg mb-8">
-                            Trải nghiệm không gian phòng chờ VIP đẳng cấp tại các sân bay Việt Nam
+                            Không gian phòng chờ VIP đẳng cấp tại các sân bay Việt Nam
                         </p>
 
                         {/* Stats Grid */}

@@ -98,7 +98,7 @@ export default function BenefitsGrid() {
                         <TextMorphInline className="text-white" stagger={0.04}>Đặc quyền </TextMorphInline><TextMorphInline className="text-gradient-silver" stagger={0.04} delay={0.4}>vượt trội</TextMorphInline>
                     </h2>
                     <p className="text-[#94a3b8] max-w-2xl mx-auto">
-                        Thẻ MB Priority Visa Signature mang đến trải nghiệm đẳng cấp với những ưu đãi độc quyền
+                        Trải nghiệm đẳng cấp với những ưu đãi độc quyền từ MB Priority Visa Signature
                     </p>
                 </motion.div>
 

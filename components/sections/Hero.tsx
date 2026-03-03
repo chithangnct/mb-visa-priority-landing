@@ -59,8 +59,8 @@ export default function Hero() {
                             variants={staggerItem}
                             className="text-lg md:text-xl text-[#94a3b8] max-w-lg mx-auto lg:mx-0 mb-8"
                         >
-                            Thẻ MB Priority Visa Signature — Đặc quyền vượt trội dành cho bạn và người thân, hoàn tiền lên đến{" "}
-                            <span className="text-white font-semibold">12.6 triệu đồng/năm</span>
+                            Đặc quyền vượt trội dành cho bạn và người thân,{" "}
+                            hoàn tiền lên đến <span className="text-white font-semibold whitespace-nowrap">12.6 triệu đồng/năm</span>
                         </motion.p>
 
                         {/* Key Benefits Pills */}

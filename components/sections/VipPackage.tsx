@@ -21,11 +21,6 @@ const packageItems = [
         title: "Thẻ Visa Signature",
         subtitle: "Thiết kế mặt kính đa chiều — tỏa sáng từ mọi góc nhìn",
     },
-    {
-        image: "/images/package/card-holder.png",
-        title: "Ví đựng thẻ",
-        subtitle: "Da cao cấp · Dập logo MB Priority · Sang trọng & tinh tế",
-    },
 ];
 
 export default function VipPackage() {

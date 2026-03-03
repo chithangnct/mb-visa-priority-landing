@@ -15,9 +15,9 @@ const travelBenefits = [
     },
     {
         icon: Plane,
-        title: "Visa Dặm Bay",
+        title: "Dặm thưởng Bông sen vàng",
         discount: "2 dặm / 20,000 đồng",
-        description: "Nhận dặm bay cho chi tiêu nước ngoài",
+        description: "Nhận dặm thưởng cho chi tiêu nước ngoài",
     },
     {
         icon: Globe,

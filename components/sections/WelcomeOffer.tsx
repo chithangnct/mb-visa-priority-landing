@@ -7,9 +7,8 @@ import Image from "next/image";
 import { TextMorphInline } from "@/components/ui/TextMorph";
 
 const conditions = [
-    "Chi tiêu 60 triệu đồng trong vòng 60 ngày",
-    "Kể từ ngày kích hoạt thẻ",
-    "Hoàn tiền trực tiếp vào thẻ tín dụng",
+    "Hoàn tiền 3 triệu đồng khi chi tiêu 60 triệu đồng trong vòng 60 ngày đầu kích hoạt thẻ",
+    "Miễn 2 triệu đồng phí mở thẻ với khách hàng Priority/Private tại MB",
 ];
 
 export default function WelcomeOffer() {
@@ -43,18 +42,13 @@ export default function WelcomeOffer() {
 
                         {/* Title */}
                         <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-                            <TextMorphInline className="text-white" stagger={0.03}>Nhận ngay </TextMorphInline><TextMorphInline className="text-gradient-gold" stagger={0.03} delay={0.3}>3,000,000 đồng</TextMorphInline>
+                            <TextMorphInline className="text-white" stagger={0.03}>Tặng đến </TextMorphInline><TextMorphInline className="text-gradient-gold" stagger={0.03} delay={0.3}>5 triệu đồng</TextMorphInline>
+                            <br />
+                            <TextMorphInline className="text-white" stagger={0.03} delay={0.6}>cho chủ thẻ mới</TextMorphInline>
                         </h2>
-
-                        <p className="text-[#94a3b8] text-lg mb-8">
-                            Đặc quyền hoàn tiền vào thẻ tín dụng dành riêng cho chủ thẻ mới
-                        </p>
 
                         {/* Conditions */}
                         <div className="space-y-4 mb-8">
-                            <p className="text-sm text-[#64748b] uppercase tracking-wider">
-                                Điều kiện nhận thưởng
-                            </p>
 
                             {conditions.map((condition, index) => (
                                 <motion.div
